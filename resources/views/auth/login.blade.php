@@ -9,20 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #063221;
-            background-image: linear-gradient(rgba(6, 50, 33, 0.55), rgba(6, 50, 33, 0.55)),
-                              url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1920&auto=format&fit=crop');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: scroll;
-            background-size: cover;
             font-family: system-ui, -apple-system, sans-serif;
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4 bg-[#063221] relative overflow-x-hidden">
 
-    <div class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+    <!-- Imagen de fondo fija y capa oscura para contraste -->
+    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1920&auto=format&fit=crop"
+         alt=""
+         class="fixed inset-0 w-full h-full object-cover pointer-events-none select-none z-0">
+    <div class="fixed inset-0 bg-[#063221]/55 pointer-events-none z-0"></div>
+
+    <div class="relative z-10 w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
 
         <!-- Columna izquierda: qué es el sistema (usa la misma imagen de fondo, con overlay) -->
         <div class="hidden lg:flex flex-col justify-between p-8 bg-black/25 backdrop-blur-[2px] text-white">
