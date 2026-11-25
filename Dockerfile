@@ -23,7 +23,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Instalar dependencias de PHP y compilar frontend
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-grpc
 RUN npm install && npm run build
 
 # Preparar SQLite para sesiones y permisos de carpetas
