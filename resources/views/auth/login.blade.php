@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(rgba(6, 50, 33, 0.55), rgba(6, 50, 33, 0.55)),
-                        url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-color: #063221;
+            background-image: linear-gradient(rgba(6, 50, 33, 0.55), rgba(6, 50, 33, 0.55)),
+                              url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1920&auto=format&fit=crop');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: scroll;
             background-size: cover;
             font-family: system-ui, -apple-system, sans-serif;
         }
