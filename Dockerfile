@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     && docker-php-ext-install pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd sodium \
-    && pecl install grpc \
-    && docker-php-ext-enable grpc \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalar Composer
