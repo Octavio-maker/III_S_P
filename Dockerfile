@@ -33,4 +33,4 @@ RUN mkdir -p database storage/framework/sessions storage/framework/views storage
 
 EXPOSE 8000
 
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
+CMD cp /etc/secrets/firebase-credentials.json storage/app/firebase-credentials.json && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
