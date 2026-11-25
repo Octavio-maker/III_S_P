@@ -10,7 +10,7 @@
             </button>
         </div>
 
-        <form method="POST" action="{{ route('cultivos.store') }}" class="px-6 py-5 space-y-4">
+        <form id="form-nuevo-cultivo" method="POST" action="{{ route('cultivos.store') }}" class="px-6 py-5 space-y-4">
             @csrf
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -79,10 +79,36 @@
                 <button type="button" onclick="cerrarModalCultivo()" class="px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 rounded-xl transition">
                     Cancelar
                 </button>
-                <button type="submit" class="px-4 py-2 bg-[#063221] hover:bg-[#042317] text-white text-xs font-bold rounded-xl transition shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-check"></i> Guardar Cultivo
+                <button id="btn-guardar-cultivo" type="submit" class="px-4 py-2 bg-[#063221] hover:bg-[#042317] text-white text-xs font-bold rounded-xl transition shadow-sm flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-check"></i> <span>Guardar Cultivo</span>
                 </button>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    (function () {
+        const form = document.getElementById('form-nuevo-cultivo');
+        const btn = document.getElementById('btn-guardar-cultivo');
+        if (!form) return;
+
+        let enviado = false;
+
+        form.addEventListener('submit', function (e) {
+            if (enviado) {
+                e.preventDefault();
+                return;
+            }
+            if (!form.checkValidity()) {
+                return;
+            }
+            enviado = true;
+            if (btn) {
+                btn.disabled = true;
+                const label = btn.querySelector('span');
+                if (label) label.textContent = 'Guardando...';
+            }
+        });
+    })();
+</script>
